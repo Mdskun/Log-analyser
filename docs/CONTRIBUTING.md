@@ -137,10 +137,10 @@ from typing import Iterator
 def analyze_my_format(lines: Iterator[str]) -> pd.DataFrame:
     """
     Parse my custom log format.
-    
+
     Args:
         lines: Iterator of log lines
-        
+
     Returns:
         pd.DataFrame: Parsed logs
     """
@@ -177,7 +177,7 @@ def test_my_parser():
     """Test my custom parser."""
     sample_line = "2024-01-01 INFO: Test message"
     df = analyze_my_format(iter([sample_line]))
-    
+
     assert len(df) == 1
     assert df.iloc[0]["level"] == "INFO"
 ```
@@ -196,21 +196,21 @@ Example docstring:
 def my_function(param1: str, param2: int = 5) -> bool:
     """
     Brief description of what function does.
-    
+
     More detailed explanation if needed. Can be multiple
     paragraphs.
-    
+
     Args:
         param1: Description of param1
         param2: Description of param2 (default: 5)
-        
+
     Returns:
         bool: Description of return value
-        
+
     Raises:
         ValueError: When param1 is empty
         TypeError: When param2 is not an integer
-        
+
     Example:
         >>> result = my_function("test", 10)
         >>> print(result)
@@ -453,7 +453,7 @@ git push origin feature/my-feature
 
 - **GitHub Issues**: Bug reports and feature requests
 - **GitHub Discussions**: Questions and general discussion
-- **Email**: dev@yourteam.com
+- **Email**: manthandsoni@gmail.com
 - **Documentation**: Check docs/ folder
 
 ### Tips for Getting Help

@@ -1,0 +1,30 @@
+Jan 15 10:00:01 webserver nginx: info starting up, listening on port 80
+Jan 15 10:00:03 appserver app[4821]: info connected to database at db.internal:5432
+Jan 15 10:00:07 appserver app[4821]: info loaded configuration from /etc/app/config.yaml
+Jan 15 10:00:12 dbserver postgres[1204]: info database system is ready to accept connections
+Jan 15 10:00:15 webserver nginx: info worker process 4822 started
+Jan 15 10:01:00 appserver app[4821]: warning high memory usage detected: 78% of 2GB
+Jan 15 10:01:04 appserver app[4821]: error failed to reach cache service at cache.internal:6379
+Jan 15 10:01:04 appserver app[4821]: warning retrying cache connection (attempt 1 of 3)
+Jan 15 10:01:06 appserver app[4821]: warning retrying cache connection (attempt 2 of 3)
+Jan 15 10:01:08 appserver app[4821]: error cache connection refused after 3 attempts, running without cache
+Jan 15 10:01:22 webserver nginx: info 192.168.1.42 GET /dashboard 200 response_time=45ms
+Jan 15 10:01:45 dbserver postgres[1204]: warning too many connections: 95 of 100 slots used
+Jan 15 10:02:00 authserver sshd[992]: info accepted publickey for deploy from 10.0.0.1 port 54312
+Jan 15 10:02:10 appserver app[4821]: error database query timeout after 30000ms on table user_sessions
+Jan 15 10:02:10 appserver app[4821]: error SQLSTATE[HY000]: General error: deadlock detected
+Jan 15 10:02:11 appserver app[4821]: info rolling back transaction tx-8f3a21b9
+Jan 15 10:02:33 webserver nginx: error upstream timed out (110: Connection timed out) while reading response header
+Jan 15 10:02:52 appserver app[4821]: info GC (Allocation Failure) paused 280ms, heap 1.4GB->890MB
+Jan 15 10:03:01 dbserver postgres[1204]: error could not write to file "pg_wal/000000010000001C": No space left on device
+Jan 15 10:03:01 dbserver postgres[1204]: error disk full, shutting down
+Jan 15 10:03:02 dbserver postgres[1204]: info database system is shut down
+Jan 15 10:03:05 webserver nginx: error connect() to unix:/var/run/app.sock failed (111: Connection refused)
+Jan 15 10:03:22 appserver app[4821]: critical out of memory: kill process 4821 score 880
+Jan 15 10:03:22 webserver nginx: error no live upstreams while connecting to upstream
+Jan 15 10:04:00 authserver sshd[992]: info new session opened for deploy from 10.0.0.1
+Jan 15 10:04:15 appserver app[5100]: info service starting, pid 5100
+Jan 15 10:04:17 appserver app[5100]: info reconnected to database at db.internal:5432
+Jan 15 10:04:18 appserver app[5100]: warning cache unavailable, using local fallback
+Jan 15 10:04:20 webserver nginx: info upstream is back, resuming normal operation
+Jan 15 10:05:00 appserver app[5100]: info service fully started, all checks passing

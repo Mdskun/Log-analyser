@@ -1,0 +1,20 @@
+{"timestamp": "2024-01-15T10:00:01.000Z", "level": "INFO",    "module": "startup", "message": "Application starting", "version": "4.0.0", "env": "production"}
+{"timestamp": "2024-01-15T10:00:02.000Z", "level": "INFO",    "module": "db",      "message": "Connected to postgres", "host": "db.internal", "port": 5432}
+{"timestamp": "2024-01-15T10:00:05.000Z", "level": "INFO",    "module": "startup", "message": "All services healthy, accepting requests"}
+{"timestamp": "2024-01-15T10:01:00.000Z", "level": "INFO",    "module": "api",     "message": "GET /api/users 200", "user_id": "u_4f2a", "response_time_ms": 12, "status": 200}
+{"timestamp": "2024-01-15T10:01:07.000Z", "level": "WARNING", "module": "db",      "message": "Slow query detected", "query": "SELECT * FROM orders WHERE user_id=?", "duration_ms": 1823}
+{"timestamp": "2024-01-15T10:01:15.000Z", "level": "ERROR",   "module": "auth",    "message": "Token validation failed", "reason": "token expired", "ip": "10.0.0.5"}
+{"timestamp": "2024-01-15T10:02:00.000Z", "level": "ERROR",   "module": "db",      "message": "Connection pool exhausted", "pool_size": 10, "queue_depth": 8}
+{"timestamp": "2024-01-15T10:02:00.000Z", "level": "ERROR",   "module": "api",     "message": "POST /api/checkout failed: db unavailable", "user_id": "u_7d3c", "status": 503}
+{"timestamp": "2024-01-15T10:02:01.000Z", "level": "ERROR",   "module": "api",     "message": "POST /api/checkout failed: db unavailable", "user_id": "u_2a8f", "status": 503}
+{"timestamp": "2024-01-15T10:02:01.000Z", "level": "ERROR",   "module": "api",     "message": "POST /api/checkout failed: db unavailable", "user_id": "u_5e1b", "status": 503}
+{"timestamp": "2024-01-15T10:02:05.000Z", "level": "INFO",    "module": "db",      "message": "Connection released, resuming queued requests"}
+{"timestamp": "2024-01-15T10:02:30.000Z", "level": "INFO",    "module": "cache",   "message": "Cache stats", "hit_ratio": 0.82, "evictions": 142, "memory_mb": 480}
+{"timestamp": "2024-01-15T10:03:00.000Z", "level": "ERROR",   "module": "payment", "message": "Stripe API timeout", "charge_id": "ch_abc123", "timeout_ms": 10000}
+{"timestamp": "2024-01-15T10:03:03.000Z", "level": "ERROR",   "module": "payment", "message": "Stripe API timeout", "charge_id": "ch_abc123", "attempt": 2}
+{"timestamp": "2024-01-15T10:03:06.000Z", "level": "ERROR",   "module": "payment", "message": "Charge failed after 3 attempts", "charge_id": "ch_abc123"}
+{"timestamp": "2024-01-15T10:03:10.000Z", "level": "WARNING", "module": "api",     "message": "Error rate spike detected", "error_rate": 0.28, "window_seconds": 60}
+{"timestamp": "2024-01-15T10:04:00.000Z", "level": "INFO",    "module": "payment", "message": "Webhook received: charge.succeeded", "charge_id": "ch_xyz789"}
+{"timestamp": "2024-01-15T10:04:01.000Z", "level": "INFO",    "module": "order",   "message": "Order marked as paid", "order_id": "ord_44821"}
+{"timestamp": "2024-01-15T10:04:10.000Z", "level": "INFO",    "module": "api",     "message": "Error rate back to normal", "error_rate": 0.012, "window_seconds": 60}
+{"timestamp": "2024-01-15T10:05:00.000Z", "level": "INFO",    "module": "metrics", "message": "Request stats", "p50_ms": 11, "p95_ms": 210, "p99_ms": 1820, "rps": 143}

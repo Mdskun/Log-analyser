@@ -1,0 +1,30 @@
+[2024-01-15 10:00:01] [INFO] [startup] Application starting, version=4.0.0 env=production
+[2024-01-15 10:00:02] [INFO] [db] Connected to postgres at db.internal:5432 pool_size=10
+[2024-01-15 10:00:03] [INFO] [cache] Connected to redis at cache.internal:6379
+[2024-01-15 10:00:05] [INFO] [startup] All services healthy, accepting requests
+[2024-01-15 10:01:00] [INFO] [api] GET /api/users user_id=u_4f2a response_time=12ms status=200
+[2024-01-15 10:01:03] [INFO] [api] POST /api/orders user_id=u_9c1b response_time=45ms status=201
+[2024-01-15 10:01:07] [WARNING] [db] Slow query detected: SELECT * FROM orders WHERE user_id=? duration=1823ms
+[2024-01-15 10:01:10] [INFO] [api] GET /api/orders/882 user_id=u_4f2a response_time=1834ms status=200
+[2024-01-15 10:01:15] [ERROR] [auth] Invalid token for user user@example.com from 10.0.0.5: token expired
+[2024-01-15 10:01:15] [WARNING] [api] Returning 401 for request to /api/profile from 10.0.0.5
+[2024-01-15 10:01:30] [INFO] [api] GET /api/products response_time=8ms status=200
+[2024-01-15 10:02:00] [ERROR] [db] Connection pool exhausted: all 10 connections in use
+[2024-01-15 10:02:00] [ERROR] [api] POST /api/checkout failed: db connection unavailable user_id=u_7d3c
+[2024-01-15 10:02:01] [ERROR] [api] POST /api/checkout failed: db connection unavailable user_id=u_2a8f
+[2024-01-15 10:02:01] [ERROR] [api] POST /api/checkout failed: db connection unavailable user_id=u_5e1b
+[2024-01-15 10:02:02] [WARNING] [db] Waiting for available connection, queue_depth=8
+[2024-01-15 10:02:05] [INFO] [db] Connection released, resuming queued requests
+[2024-01-15 10:02:06] [INFO] [api] POST /api/checkout user_id=u_7d3c response_time=2100ms status=200
+[2024-01-15 10:02:30] [INFO] [cache] Cache hit ratio=0.82 evictions=142 memory_used=480MB
+[2024-01-15 10:03:00] [ERROR] [payment] Stripe API timeout after 10000ms for charge ch_abc123
+[2024-01-15 10:03:00] [ERROR] [payment] Retrying charge ch_abc123 (attempt 1 of 3)
+[2024-01-15 10:03:03] [ERROR] [payment] Retrying charge ch_abc123 (attempt 2 of 3)
+[2024-01-15 10:03:06] [ERROR] [payment] Charge ch_abc123 failed after 3 attempts, notifying user
+[2024-01-15 10:03:10] [WARNING] [api] Error rate spike: 28% of requests failed in last 60s
+[2024-01-15 10:03:30] [INFO] [api] GET /health response_time=2ms status=200
+[2024-01-15 10:04:00] [INFO] [payment] Stripe webhook received: charge.succeeded ch_xyz789
+[2024-01-15 10:04:01] [INFO] [order] Order ord_44821 marked as paid, dispatching fulfillment
+[2024-01-15 10:04:05] [DEBUG] [cache] Invalidating cache keys: [user:u_4f2a:orders, product:p_001:stock]
+[2024-01-15 10:04:10] [INFO] [api] Error rate back to normal: 1.2% in last 60s
+[2024-01-15 10:05:00] [INFO] [metrics] p50=11ms p95=210ms p99=1820ms rps=143 errors=2
