@@ -29,6 +29,12 @@ class CompiledPatterns:
         "apache": re.compile(
             r"\d+\.\d+\.\d+\.\d+ - - \[.*?\] \".*?\" \d{3} \d+"
         ),
+        "apache_modjk": re.compile(
+            r"^\[\w{3}\s+\w{3}\s+\d{2}\s+\d{2}:\d{2}:\d{2}\s+\d{4}\] \[\w+\]"
+        ),
+        "tomcat_connector": re.compile(
+            r"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}[.,]\d{3}\s+\[\w+\]"
+        ),
         "json": re.compile(r"^\{.*\}$"),
         "docker_json": re.compile(r"^\{.*\"log\":.*\"time\":.*\}$"),
         "kubernetes_json": re.compile(r"^\{.*\"kubernetes\"\s*:\s*\{.*\}.*\}$"),
@@ -45,7 +51,9 @@ class CompiledPatterns:
     TS_START = re.compile(
         r"^(\[?\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}|"
         r"\w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2}|"
-        r"\d+\.\d+\.\d+\.\d+ - - \[|<Event|\{)"
+        r"\d+\.\d+\.\d+\.\d+ - - \[|"
+        r"\[\w{3}\s+\w{3}\s+\d{2}\s+\d{2}:\d{2}:\d{2}\s+\d{4}\]|"
+        r"<Event|\{)"
     )
 
     CONTINUATION = re.compile(
