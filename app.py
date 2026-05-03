@@ -273,7 +273,10 @@ def _apply_sidebar_filters(df: pd.DataFrame) -> pd.DataFrame:
             if not ts_clean.empty:
                 min_time = ts_clean.min().to_pydatetime()
                 max_time = ts_clean.max().to_pydatetime()
-
+            # Handle case where all timestamps are identical
+            if min_time == max_time:
+                from datetime import timedelta
+                max_time = max_time + timedelta(seconds=1)
                 time_range = st.slider(
                     "Time Range",
                     min_value=min_time,
