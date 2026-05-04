@@ -29,7 +29,7 @@ Sample files are in the [`examples/`](examples/) folder if you want to try it im
 ## ✨ Features
 
 ### 📁 Multiple Format Support
-- **Standard Logs**: Syslog, Apache (Common/Combined), Custom `[timestamp][level][module]` format
+- **Standard Logs**: Syslog, Apache (Common/Combined/mod_jk), Custom `[timestamp][level][module]` format
 - **JSON Logs**: Generic JSON, Docker, Kubernetes, AWS CloudWatch, GCP Cloud Logging
 - **XML Logs**: Windows Event Logs (exported XML)
 - **Auto-detection**: Smart format detection — just upload and go
@@ -127,6 +127,8 @@ for a complete walkthrough covering all analytics functions.
 
 ### Registering a custom parser
 
+into system
+
 ```python
 import pandas as pd
 from typing import Iterator
@@ -141,7 +143,20 @@ def analyze_my_format(lines: Iterator[str]) -> pd.DataFrame:
 LogParser.register_parser("my_format", analyze_my_format)
 df = LogParser.parse(iter(lines), "my_format")
 ```
+into ui
 
+```python
+import streamlit as st
+from src.ui.format_config import FormatConfigUI
+
+# Render format configuration UI
+format_name, format_config = FormatConfigUI.render()
+
+# Use the selected format
+if format_name and uploaded_file:
+    lines = iter(uploaded_file.getvalue().decode().split('\n'))
+    df = LogParser.parse(lines, format_name, format_config)
+```
 ---
 
 ## 🏗️ Architecture
