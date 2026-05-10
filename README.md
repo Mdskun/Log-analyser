@@ -9,6 +9,8 @@
 
 ## 🚀 Quick Start
 
+### Option 1: Local Installation
+
 ```bash
 # Clone repository
 git clone https://github.com/mdskun/Log-analyser.git
@@ -22,6 +24,25 @@ streamlit run app.py
 ```
 
 Open your browser to `http://localhost:8501` and upload a log file.
+
+### Option 2: Docker
+
+```bash
+# Clone repository
+git clone https://github.com/mdskun/Log-analyser.git
+cd Log-analyser
+
+# Run with Docker Compose
+docker-compose up
+```
+
+The application will be available at `http://localhost:8085` (or use `docker run` below).
+
+**Single container command:**
+```bash
+docker run -p 8085:8085 --name log-analyser log-analyser:latest
+```
+
 Sample files are in the [`examples/`](examples/) folder if you want to try it immediately.
 
 ---
@@ -55,14 +76,29 @@ Sample files are in the [`examples/`](examples/) folder if you want to try it im
 
 ## 📦 Installation
 
-### Basic (run the app)
+### Local Installation (run the app)
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-### Developer (run tests + linters)
+### Docker Installation
+
+**Prerequisites**: Docker and Docker Compose installed.
+
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+
+# Or build and run the image manually
+docker build -t log-analyser:latest .
+docker run -p 8085:8085 --name log-analyser log-analyser:latest
+```
+
+The app will be available at `http://localhost:8085`.
+
+### Developer Installation (run tests + linters)
 
 ```bash
 # Clone

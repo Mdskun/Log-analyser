@@ -7,7 +7,7 @@ Status labels: ✅ Done · 🔄 In progress · 📋 Planned · 💡 Under consid
 
 ---
 
-## v4.0.0 — Current release
+## v4.0.0 — Initial release
 
 | Feature | Status |
 |---|---|
@@ -21,18 +21,24 @@ Status labels: ✅ Done · 🔄 In progress · 📋 Planned · 💡 Under consid
 | Full test suite | ✅ |
 
 ---
+## [4.0.1] — 2025-05-10
 
+Expanded deployment options and format support.
+
+| Feature | Status |
+|---|---|
+| Docker support (Dockerfile + docker-compose.yml) | ✅ |
+| Apache mod_jk log type parser | ✅ |
+---
 ## v4.1 — Next release
 
 Focus: **usability and performance for larger files.**
 
 | Feature | Status | Notes |
 |---|---|---|
-| CLI tool (`log-analyzer analyse app.log`) | 📋 | Click-based, mirrors the programmatic API |
 | ML algorithum Customization | 📋 | Let users set their own z-score and error-ratio thresholds from the sidebar |
 | Real benchmark numbers in README | 📋 | Run against 10 MB / 50 MB / 100 MB files and publish actual timings |
 | Support gzip-compressed log files | 📋 | Auto-detect `.gz` on upload |
-| Nginx access log format | 📋 | Common variant of Apache format worth explicit support |
 
 ---
 
@@ -50,13 +56,12 @@ Focus: **multi-file analysis and richer ML insights.**
 
 ## Long-term
 
-Focus: **CI/CD integration and deployment options and ideas i think to add.**
+Focus: **advanced analysis features and ecosystem expansion.**
 
 | Feature | Status | Notes |
 |---|---|---|
-| Time-range comparison view(featurename:insight dash) | 💡 | Compare "last hour" vs "same hour yesterday" or you can say  stimulate at that time |
-| Log stories | 💡 | convert log to story or report making automation |
-| Docker image | 💡 | `docker run -p 8501:8501 log-analyzer` |
+| Time-range comparison view (insight dashboard) | 💡 | Compare "last hour" vs "same hour yesterday" or historical patterns |
+| Log stories/automated reporting | 💡 | Convert logs to narrative stories or executive reports |
 | CI/CD integration | 💡 | GitHub Actions workflow for automated testing and releases |
 | Plugin system | 💡 | Third-party parsers and analytics as installable packages |
 

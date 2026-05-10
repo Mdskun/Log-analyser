@@ -75,6 +75,36 @@ a single-file monolith (`Analyser.py`) into a clean, modular package under `src/
 
 ---
 
+## [4.0.1] — 2025-05-10
+
+Expanded deployment options and format support.
+
+### Added
+
+**Docker support**
+- `Dockerfile` for containerized deployment (Python 3.11-slim base image, exposes port 8085)
+- `docker-compose.yml` for easy local development and testing with `docker-compose up`
+- `.dockerignore` file to exclude unnecessary files from Docker builds (caches, git, tests, old files)
+
+**Log format support**
+- Apache mod_jk log parser for Tomcat/Java application server logs
+
+### Changed
+
+- **README.md**: Restructured Quick Start section with two options:
+  - Option 1: Local Installation (direct pip install)
+  - Option 2: Docker (docker-compose or manual docker run)
+- **README.md**: Expanded Installation section with dedicated Docker setup instructions
+- **README.md**: Clarified installation paths for local development and Docker deployment
+
+### Fixed
+
+- Docker Streamlit port configuration set to 8085 (matches docker-compose.yml)
+- Updated documentation structure for better discoverability
+
+
+---
+
 ## [3.x] — Internal / Pre-release
 
 Versions 1–3 were internal iterations building toward the modular architecture
