@@ -1,0 +1,9 @@
+services:
+  log-analyser:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: log-analyser
+    restart: unless-stopped
+    ports:
+      - 8085:8085
