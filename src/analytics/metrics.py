@@ -77,7 +77,7 @@ def hourly_metrics(df: pd.DataFrame) -> pd.DataFrame:
     tmp["is_error"] = tmp["level"].astype(str).str.upper() == "ERROR"
     tmp = tmp.set_index("timestamp").sort_index()
 
-    # Use "h" — the "1H" alias was deprecated in pandas 2.2
+    # Use "h" — the "1h" alias was deprecated in pandas 2.2
     grp = tmp.resample("h")
     res = pd.DataFrame({
         "count": grp.size(),

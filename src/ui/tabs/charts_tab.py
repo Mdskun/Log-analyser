@@ -50,7 +50,7 @@ def render_charts_tab(df: pd.DataFrame) -> None:
         if "level" in df.columns:
             st.subheader("Log Level Timeline")
             timeline = (
-                df.groupby([pd.Grouper(key="timestamp", freq="1H"), "level"])
+                df.groupby([pd.Grouper(key="timestamp", freq="1h"), "level"])
                 .size()
                 .reset_index(name="count")
             )
