@@ -40,7 +40,7 @@ def render_charts_tab(df: pd.DataFrame) -> None:
         st.subheader("Logs Over Time (hourly)")
         ts_counts = (
             df.set_index("timestamp")
-            .resample("1H")
+            .resample("1h")
             .size()
             .reset_index(name="count")
         )
